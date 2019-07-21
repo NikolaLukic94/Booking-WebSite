@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <h1>BooKing:</h1>
+{% endblock title %}
+
+{% block body %}
+    
+    {% if events %}
+        <table id="events" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Event Title:</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                    <tr>
+                        <td>{{ event.id }}</td>
+                        <td>
+                            <a href="/event/{{ event.id }}" class="btn btn-dark">Show</a>
+                            <a href="/event/edit/{{ event.id }}" class="btn btn-light">Edit</a>                            
+                            <a href="/" class="btn btn-danger delete-article" data-id="{{ event.id }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endofor %}
+            </tbody>
+        </table>
+    {% endif %}
+    
+
+{% endblock body %}
+
+{% block javascripts  %}
+    <script src="/js/main.js"></script>
+{% block javascripts  %}    

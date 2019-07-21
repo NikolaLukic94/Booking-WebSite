@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-
 {% block title %}
-    <h1>Events:</h1>
+    <h1>New Event:</h1>
 {% endblock title %}
 
 {% block body %}
-    
-<p> best offers so far </p>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
 {% block body %}    
