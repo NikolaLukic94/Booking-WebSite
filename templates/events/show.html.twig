@@ -5,10 +5,132 @@
 {% endblock title %}
 
 {% block body %}
-    <h1>{{ event.name }}</h1>
-    <p>{{ event.description }}</p>
-    <hr>
-    <a href="/">Go back</a>
-    
+<nav class="navbar navbar-expand-lg navbar-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">BooKING</a>
 
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Host event <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Help</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Sing up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Log in</a>
+      </li>      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<!-- maing page content -->
+<img class="full-width" alt="Sunset Panorama" src="http://upload.wikimedia.org/wikipedia/commons/6/62/Berkeley-San_Francisco-Oakland--Sunset-Panorama.jpg" />
+
+<div class="container"><!-- container start -->
+  	<div class="row"><!-- row start -->
+	    <div class="col-7"><br><!-- col-7 start -->
+	      	<b>Studio 110</b>
+	      	<p>Place to stay</p>
+	      	<hr>
+	      	<a href="#">Contact Us</a>
+	      	<p>Amenities</p>
+	      	<ul>
+	        	<li>Smoke Detectors</li>
+	        	<li>Heating</li>
+	        	<li>TV</li>
+	        	<li>Hot water</li>
+	      	</ul>
+	      	<hr>
+    	</div><!-- col-7 end -->
+    	<div class="col-5"><!-- col-5 start -->
+			<div class="card" id="book"><!-- card start -->
+      			<div class="container"><!-- card container start -->
+      				<h1>$22 per night</h1>
+            			<div class="row">
+              				<div class="col-sm">
+                				<p>Dates</p>
+                  				<input type="text">
+              				</div>
+              			<div class="col-sm">
+                			<input type="text">
+              			</div>
+            		</div>
+        <p>GUESTS</p>
+        <input type="text">
+        <hr>
+        <p>Those dates are not available</p>
+        <button id="search" type="button" class="btn btn-danger float-right">Search</button>
+          </div>   
+        <p>Report this listing</p>  
+      </div> 
+    </div>
+  </div> 
+</div>
+
+
+<footer class="page-footer font-small blue pt-4">
+  <div class="container-fluid text-center text-md-left">
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <h5 class="text-uppercase">Footer Content</h5>
+        <p>Here you can use rows and columns to organize your footer content.</p>
+      </div>
+      <hr class="clearfix w-100 d-md-none pb-3">
+      <div class="col-md-3 mb-md-0 mb-3">
+        <h5 class="text-uppercase">Links</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+        <!-- Links -->
+        <h5 class="text-uppercase">Links</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Coded by:
+    <a href="https://github.com/nick094">Nikola Lukic</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 {% block body %}    

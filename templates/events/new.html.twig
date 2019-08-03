@@ -5,7 +5,9 @@
 {% endblock title %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
-{% block body %}    
+	{% if form is defined %}
+	    {{ form_start(form) }}
+	    {{ form_widget(form) }}
+	    {{ form_end(form) }}
+	{% endif %}
+{% endblock body %}    

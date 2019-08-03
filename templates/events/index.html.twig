@@ -6,32 +6,143 @@
 
 {% block body %}
     
-    {% if events %}
-        <table id="events" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Event Title:</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for event in events %}
-                    <tr>
-                        <td>{{ event.id }}</td>
-                        <td>
-                            <a href="/event/{{ event.id }}" class="btn btn-dark">Show</a>
-                            <a href="/event/edit/{{ event.id }}" class="btn btn-light">Edit</a>                            
-                            <a href="/" class="btn btn-danger delete-article" data-id="{{ event.id }}">Delete</a>
-                        </td>
-                    </tr>
-                {% endofor %}
-            </tbody>
-        </table>
-    {% endif %}
+<nav class="navbar navbar-expand-lg navbar-light">
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  	</button>
+  	<a class="navbar-brand" href="/">BooKING</a>
+
+  	<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      		<li class="nav-item active">
+        		<a class="nav-link" href="#">Host event <span class="sr-only">(current)</span></a>
+      		</li>
+	    	<li class="nav-item">
+	        	<a class="nav-link" href="#">Help</a>
+	      	</li>
+	      	<li class="nav-item">
+	        	<a class="nav-link disabled" href="#">Sing up</a>
+	      	</li>
+	      	<li class="nav-item">
+	        	<a class="nav-link disabled" href="#">Log in</a>
+	      	</li>      
+    	</ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div class="container">
+  	<div class="col-md-6">
+    	<div class="card" id="book">
+      		<div class="container">
+      			<h1>Book unique places to stay and things to do.</h1>
+        		<p>WHERE</p>
+          			<input type="text"><br>
+            	<div class="row">
+              		<div class="col-sm">
+                		<p>CHECK-IN</p>
+                  		<input type="text">
+             		</div>
+              		<div class="col-sm">
+                		<p>CHECKOUT</p>
+                	<input type="text">
+              	</div>
+            </div>
+      	<p>GUESTS</p>
+        <input type="text">
+        <button id="search" type="button" class="btn btn-danger float-right">Search</button>
+    </div>    
+  </div>
+</div>
+  </div>
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Footer Content</h5>
+        <p>Here you can use rows and columns to organize your footer content.</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase">Links</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Link 1</a>
+          </li>
+          <li>
+            <a href="#!">Link 2</a>
+          </li>
+          <li>
+            <a href="#!">Link 3</a>
+          </li>
+          <li>
+            <a href="#!">Link 4</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Coded by:
+    <a href="https://github.com/nick094">Nikola Lukic</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
     
 
 {% endblock body %}
 
 {% block javascripts  %}
     <script src="/js/main.js"></script>
-{% block javascripts  %}    
+{% endblock javascripts  %}    

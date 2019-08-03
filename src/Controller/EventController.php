@@ -24,11 +24,9 @@ class EventController extends AbstractController
      */
     public function index()
     {
-        $number = "3";
 
-        return new Response(
-            '<html><body>Lucky number: '.$number.'</body></html>'
-        );
+        return $this->render(
+            'events/index.html.twig');
     }
 
     /**
@@ -38,8 +36,12 @@ class EventController extends AbstractController
     public function create(Request $request)
     {
         $event = new Event();
-
-        $form = $this->createFormBuilder($event)->add('name', TextType::class, array('attr' => array('class' => 'form-control')))->add('body', TextArea::class, array('attr' => array('class'=> 'form-control')))->add('save', SubmitType::class, array('label' => 'Create', 'attr' => array('class'=>'btn btn-primary mt-3') ))->getForm();
+        
+        $form = $this->createFormBuilder($event)
+                     ->add('name', TextType::class, array('attr' => array('class' => 'form-control')))
+                     ->add('body', TextArea::class, array('attr' => array('class'=> 'form-control')))
+                     ->add('save', SubmitType::class, array('label' => 'Create', 'attr' => array('class'=>'btn btn-primary mt-3') ))
+                     ->getForm();
 
         $form->handleRequest($request);
 
@@ -118,7 +120,7 @@ class EventController extends AbstractController
 
     /**
      * @Route("/event/delete/{id}")
-     * @Method({'DELETE'})
+     * @Method({"DELETE"})
      */
     public function delete(Request $request, $id)
     {

@@ -2,14 +2,17 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %} {% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        {% block stylesheets %}{% endblock %}
+        <link type="text/css" href="/css/all.css" rel="stylesheet" />        
+        {% block stylesheets %}  {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+
+        {% endblock %}
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %} {% endblock %}
     </body>
 </html>
 

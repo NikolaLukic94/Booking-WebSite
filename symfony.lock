@@ -105,6 +105,9 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "symfony/asset": {
+        "version": "v4.3.3"
+    },
     "symfony/cache": {
         "version": "v4.3.2"
     },
@@ -163,6 +166,9 @@
             "./.env"
         ]
     },
+    "symfony/form": {
+        "version": "v4.3.3"
+    },
     "symfony/framework-bundle": {
         "version": "4.2",
         "recipe": {
@@ -188,6 +194,12 @@
     "symfony/http-kernel": {
         "version": "v4.3.2"
     },
+    "symfony/inflector": {
+        "version": "v4.3.3"
+    },
+    "symfony/intl": {
+        "version": "v4.3.3"
+    },
     "symfony/maker-bundle": {
         "version": "1.0",
         "recipe": {
@@ -200,8 +212,14 @@
     "symfony/mime": {
         "version": "v4.3.2"
     },
+    "symfony/options-resolver": {
+        "version": "v4.3.3"
+    },
     "symfony/orm-pack": {
         "version": "v1.0.6"
+    },
+    "symfony/polyfill-intl-icu": {
+        "version": "v1.11.0"
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.11.0"
@@ -214,6 +232,9 @@
     },
     "symfony/polyfill-php73": {
         "version": "v1.11.0"
+    },
+    "symfony/property-access": {
+        "version": "v4.3.3"
     },
     "symfony/routing": {
         "version": "4.2",
@@ -255,6 +276,24 @@
     },
     "symfony/var-exporter": {
         "version": "v4.3.2"
+    },
+    "symfony/webpack-encore-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "e8b6b2ac4a1522bd688ea2953fbc264c968b8f39"
+        },
+        "files": [
+            "./assets/css/app.css",
+            "./assets/js/app.js",
+            "./config/packages/assets.yaml",
+            "./config/packages/prod/webpack_encore.yaml",
+            "./config/packages/webpack_encore.yaml",
+            "./package.json",
+            "./webpack.config.js"
+        ]
     },
     "symfony/yaml": {
         "version": "v4.3.2"
