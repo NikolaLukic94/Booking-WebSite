@@ -1,8 +1,8 @@
-<?php 
-
+<?php
 namespace App\Controller;
 
-use App\Entity\Event;
+use App\Entity\Address;
+use App\Entity\User;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,22 +11,28 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextArea;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class EventController extends AbstractController
+class ReservationController extends AbstractController
 {
     /**
-     * @Route("/", name="event_list")
-     * Method({"GET","POST"})
+     * @Route("/", name="reservation")
      */
     public function index()
     {
+        $addresses = $this->getDoctrine()
+                          ->getRepository(Address::class);
+
+        $addressesCityAndState = [];
+        foreach ($addresses as $address) {
+            array_push($addressesCityAndState[$address->city], $address->$state);
+        }        
 
         return $this->render(
-            'events/index.html.twig');
+            'reservation/index.html.twig',[
+        	'addressesCityAndState' => $addressesCityAndState]);
     }
 
     /**
@@ -98,8 +104,6 @@ class EventController extends AbstractController
         return $this->render('events/show.html.twig', array('article' => $article));
     }
 
-
-
     /**
      * @Route("/")
      */
@@ -124,7 +128,6 @@ class EventController extends AbstractController
      */
     public function delete(Request $request, $id)
     {
-
         $article = $this->getDoctrine()->getRepository(Article::class)->find($id);        
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -135,5 +138,5 @@ class EventController extends AbstractController
         $response->send();
     }  
 
-}
 
+}

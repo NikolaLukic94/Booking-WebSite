@@ -13,3 +13,23 @@ if(events) {
 		}
 	})
 }
+
+
+const addresses = ['Paracin', 'Vrnjacka Banja'];
+
+document.getElementById('search').addEventListener('input', (e)=>(
+
+	let addressesArray = [];
+
+	if(e.target.value) {
+		addressesArray = addresses.filter(address.toLowerCase().includes(e.target.value));
+		addressesArray = addressesArray.map(address => '<li>$(address)</li>')
+	}
+	showAddressArray(addressesArray);
+
+));
+
+function showAddressArray(addressesArray) {
+	const html = !addressesArray.length ? '' : addressesArray.join();
+	document.querySelector('ul').innerHTML = html;
+}
