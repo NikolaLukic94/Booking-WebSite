@@ -26,3 +26,16 @@ input{
 .full-width {
   width: 100%;
 }
+#users-card{
+  padding-top:3%;
+  padding-bottom:3%;
+}
+#users-search-button{
+  position: absolute;
+  right: 2%;
+  display:inline-block;
+}
+#filter-by-dropdown{
+  position: absolute;
+  right:2%;
+}

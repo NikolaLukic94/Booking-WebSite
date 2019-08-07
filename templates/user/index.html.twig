@@ -1,9 +1,69 @@
 {% extends 'base.html.twig' %}
 
-
 {% block body %}
 
-
-
+<div class="container" id="users-card">
+  <div class="col-md-8 offset-2">
+    <div class="card">
+      <div class="card-header text-center">
+        <div class="row">
+        <p id="users-card-header">Users:</p>
+        <form class="form-inline my-2 my-lg-0">
+          <div id="users-search-button">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search user" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+        </div>
+            </form>    
+        </div>  
+      </div>
+      <div class="card-body">
+          <tr>
+        {% if(users)  %}   
+          {% for user in users %}            
+            <th>photo_goes_here</th>         
+            <th>First </th>
+            <th>Last </th>
+            <th>Points</th>
+            <th>Active</th>
+            <th></th>
+          </tr>
+        <table class="users-table text-center">     
+          <tr>             
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.experience }}</td>
+            <td>{{ user.currently_active }}</td>
+            <td>edit</td>
+            <td>delete</td>
+            <td>archive</td>
+            <td>dissaprove</td>
+          </tr>
+          {% endfor %}
+        {% else %}
+            There are no users!
+        {% endif %}     
+        </table>
+        }
+      </div>
+      <div class="card-footer">
+        <div class="row">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Filter by City/Country" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
+         </form>   
+		<div class="btn-group" id="filter-by-dropdown">
+		  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    Sort by
+		  </button>
+		  <div class="dropdown-menu">
+		    <p>Newst</p>
+		  </div>
+		</div>
+        </div>
+      </div>
+        </div>
+    </div>
+   </div>
+</div>
 
 {% endblock %}
