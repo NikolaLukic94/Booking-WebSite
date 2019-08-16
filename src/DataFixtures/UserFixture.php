@@ -30,8 +30,25 @@ class UserFixture extends Fixture
 	        $user->setFirstName("First Name");
 
 	        return $user;
-
     //	});
+    //	$this->createMany(10, 'admin_users', function($i) {
+
+	      	$user = new User();
+	        $user->setEmail('example@email.com'
+	        	//, $i
+	    );//);
+	        $user->setPassword($this->passwordEncoder->encodePassword($user,'engage')); //passing $user so password encoder knows which encoder algorithm to use, passing word we want to use
+	        $user->setFirstName("First Name");
+	        $user->setRoles(['ROLE_ADMIN']);
+
+	        return $user;
+    //	});
+        $this->createMany(10, 'main_users', function($i) use ($manager) {
+            $apiToken1 = new ApiToken($user);
+            $apiToken2 = new ApiToken($user);
+            return $user;
+        });
+
 	        $manager->flush();
 
     }

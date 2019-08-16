@@ -36,10 +36,25 @@
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">Sing up</a>
                     </li>
+                    {% if is_granted('ROLE_USER') %}
+                        <li class="nav-item dropdown" style="margin-right: 75px;">
+                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <img class="nav-profile-img rounded-circle" src="{{ asset('images/astronaut-profile.png') }}">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="{{ path('app_account') }}">Profile</a>
+                                <a class="dropdown-item" href="{{ path('add_address') }}">Add Your Address</a>
+                                <a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a>
+                            </div>
+                        </li>  
+                    {% elseif is_granted('ROLE_ADMIN') %}
+                        <a class="dropdown-item" href="{{ path('account_history') }}">Auth Activity</a>              
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_login') }}">Log in</a>
                     </li>      
+                    {% endif %}  
                 </ul>
+                                  
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
