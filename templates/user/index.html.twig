@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<div class="container" id="users-card">
+<div class="container" id="users-card"><!-- container -->
   <div class="col-md-8 offset-2">
     <div class="card">
       <div class="card-header text-center">
@@ -17,33 +17,31 @@
         </div>  
       </div>
       <div class="card-body">
+        <table class="users-table text-center">
           <tr>
-        {% if(users)  %}   
-          {% for user in users %}            
-            <th>photo_goes_here</th>         
-            <th>First </th>
-            <th>Last </th>
+            <th>photo</th>         
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Password</th>
             <th>Points</th>
             <th>Active</th>
+            <th>View Address/es</th>
             <th></th>
           </tr>
-        <table class="users-table text-center">     
-          <tr>             
-            <td>{{ user.first_name }}</td>
-            <td>{{ user.last_name }}</td>
-            <td>{{ user.experience }}</td>
-            <td>{{ user.currently_active }}</td>
+          <tr>
+            <td></td>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>see</td>
             <td>edit</td>
             <td>delete</td>
+            <td></td>
             <td>archive</td>
-            <td>dissaprove</td>
+            <td>  
+              <a class="btn btn-danger" href="#">
+  <i class="fa fa-trash-o fa-lg">Delete</i> </a>
           </tr>
-          {% endfor %}
-        {% else %}
-            There are no users!
-        {% endif %}     
         </table>
-        }
       </div>
       <div class="card-footer">
         <div class="row">
@@ -51,14 +49,18 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Filter by City/Country" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Search</button>
          </form>   
-		<div class="btn-group" id="filter-by-dropdown">
-		  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		    Sort by
-		  </button>
-		  <div class="dropdown-menu">
-		    <p>Newst</p>
-		  </div>
-		</div>
+        <div class="btn-group" id="filter-by-dropdown">
+          <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sort by
+          </button>
+          <div class="dropdown-menu">
+            <p>Date - newest</p>
+            <p>Date - latest</p>
+            <p>Points - highest first</p>
+            <p>Points - lowest first</p>
+            <p># of addresses - asc</p>
+          </div>
+        </div>
         </div>
       </div>
         </div>

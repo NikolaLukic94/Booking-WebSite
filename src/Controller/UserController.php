@@ -17,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/user/all", name="user_index")
+     * @Route("/users/all", name="user_index")
      */
     public function index()
     {
@@ -27,7 +27,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/new", name="new_user")
+     * @Route("/users/new", name="new_user")
      * Method({"GET"})  
      */
     public function create()
@@ -58,7 +58,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/new", name="new_user")
+     * @Route("/users/new", name="new_user")
      * Method({"GET","POST"})     
      */
     public function store()
@@ -77,7 +77,7 @@ class UserController extends AbstractController
     }   
 
     /**
-     * @Route("/user/edit", name="edit_user")
+     * @Route("/users/edit", name="edit_user")
      */
     public function edit(Request $request, $id)
     {
@@ -107,7 +107,7 @@ class UserController extends AbstractController
     }  
 
     /**
-     * @Route("/user/edit", name="edit_user")
+     * @Route("/users/edit", name="edit_user")
      */
     public function update()
     {
@@ -115,7 +115,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/article/{id}", name="article_show")
+     * @Route("/users/{id}", name="user_show")
      * Method({"GET","POST"})
      */
     public function show($id)
@@ -126,7 +126,7 @@ class UserController extends AbstractController
     }
 
    /**
-     * @Route("/user/edit", name="edit_user")
+     * @Route("/users/edit", name="edit_user")
      */
     public function delete()
     {

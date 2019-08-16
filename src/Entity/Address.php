@@ -22,27 +22,27 @@ class Address
     private $street_number;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=190, nullable=true)
      */
     private $street_name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=190, nullable=true)
      */
     private $city;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=190, nullable=true)
      */
     private $county;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=190, nullable=true)
      */
     private $state;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=190, nullable=true)
      */
     private $zip;
 
