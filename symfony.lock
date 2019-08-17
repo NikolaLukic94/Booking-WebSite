@@ -90,6 +90,18 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "friendsofsymfony/jsrouting-bundle": {
+        "version": "2.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.3",
+            "ref": "a9f2e49180f75cdc71ae279a929c4b2e0638de84"
+        },
+        "files": [
+            "./config/routes/fos_js_routing.yaml"
+        ]
+    },
     "fzaninotto/faker": {
         "version": "v1.8.0"
     },
@@ -334,6 +346,9 @@
             "./templates/base.html.twig"
         ]
     },
+    "symfony/var-dumper": {
+        "version": "v4.3.3"
+    },
     "symfony/var-exporter": {
         "version": "v4.3.2"
     },
@@ -363,5 +378,8 @@
     },
     "webmozart/assert": {
         "version": "1.4.0"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
     }
 }

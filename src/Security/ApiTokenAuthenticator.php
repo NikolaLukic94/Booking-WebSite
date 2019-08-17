@@ -11,7 +11,7 @@ use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 use App\Repository\ApiTokenRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
-use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
+
 
 class ApiTokenAuthenticator extends AbstractGuardAuthenticator
 {
@@ -38,14 +38,13 @@ class ApiTokenAuthenticator extends AbstractGuardAuthenticator
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        $token = $this->apiTokenRepo->findOneBy([
-            'token' => $credentials
-        ]);
+        $token = $this->apiTokenRepo->findOneBy(['token' => $credentials]);
 
         if (!$token) {
             throw new CustomUserMessageAuthenticationException(
                 'Invalid API Token'
             );
+        }
 
         if ($token->isExpired()) {
             throw new CustomUserMessageAuthenticationException(

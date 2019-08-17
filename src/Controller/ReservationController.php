@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Entity\Address;
 use App\Entity\User;
+use App\Entity\Reservation;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextArea;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -36,33 +37,41 @@ class ReservationController extends AbstractController
     }
 
     /**
-     * @Route("/event/new", name="new_event")
+     * @Route("/reservation/new", name="new_reservation")
      * Method({"GET","POST"})
      */
     public function create(Request $request)
     {
-        $event = new Event();
-        
-        $form = $this->createFormBuilder($event)
-                     ->add('name', TextType::class, array('attr' => array('class' => 'form-control')))
-                     ->add('body', TextArea::class, array('attr' => array('class'=> 'form-control')))
+        $reservation = new Reservation();
+
+        $form = $this->createFormBuilder($reservation)
+                     ->add('duration', TextType::class, array('attr' => array('class' => 'form-control')))
+                     ->add('starting_from_date', DateType::class, array('attr' => array('class'=> 'form-control')))
+                     ->add('until_date', DateType::class, array('attr' => array('class'=> 'form-control')))         
+                     ->add('guests_number', TextType::class, array('attr' => array('class'=> 'form-control')))   
+                     ->add('note', TextType::class, array('attr' => array('class' => 'form-control')))                                      
                      ->add('save', SubmitType::class, array('label' => 'Create', 'attr' => array('class'=>'btn btn-primary mt-3') ))
                      ->getForm();
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
-            $event = $form->getData();
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $reservation = $form->getData();
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($event);
+
+            $entityManager->persist($reservation);
             $entityManager->flush();
 
-            return $this->redicrectToRoute('article_list');
+            return $this->redirectToRoute('reservation');
         }
 
         return $this->render(
-            'articles/new.html.twig', array('form'=> $form->createView())
+            'user/new.html.twig', ['form'=> $form->createView()
+        ]);
+        return $this->render(
+            'reservation/new.html.twig', array('form'=> $form->createView())
         );
     }
 

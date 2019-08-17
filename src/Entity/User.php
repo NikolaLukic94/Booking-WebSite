@@ -44,9 +44,31 @@ class User implements UserInterface
      */
     private $apiTokens;
 
-    public function __construct()
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $last_name;
+
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $active;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $points;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
+
+    public function __construct(User $user)
     {
         $this->apiTokens = new ArrayCollection();
+        $this->points = '0';
+        $this->active = '0';
     }
 
     public function getId(): ?int
@@ -166,6 +188,49 @@ class User implements UserInterface
                 $apiToken->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->last_name;
+    }
+
+    public function setLastName(string $last_name): self
+    {
+        $this->last_name = $last_name;
+
+        return $this;
+    }
+
+    public function getActive(): ?int
+    {
+        return $this->active;
+    }
+
+    public function setActive(?int $active): self
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    public function getPoints(): ?int
+    {
+        return $this->points;
+    }
+
+    public function setPoints(?int $points): self
+    {
+        $this->points = $points;
+
+        return $this;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }
